@@ -1,5 +1,3 @@
-from route import Route
-
 class Train:
     """
     Class for train,
@@ -22,7 +20,6 @@ class Train:
         self.t_speed = 0
         self.position = ""
         self.current_position_number = 0
-        self.route = ""
 
     def up_speed(self, speed):
         """
@@ -63,6 +60,7 @@ class Train:
         return self.wagons
 
     def get_route(self, list_stations):
+        self.route = list_stations
         self.position = list_stations[0]
         self.current_position_number = 0
         return self.position
@@ -82,10 +80,10 @@ class Train:
 
     def return_previous(self):
         if self.current_position_number != 0:
-            return r[self.current_position_number - 1]
+            return self.route[self.current_position_number - 1]
 
     def return_position(self):
-        return r[self.current_position_number]
+        return self.route[self.current_position_number]
 
     def return_next_position(self):
         if self.position != self.route[-1]:
