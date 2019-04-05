@@ -1,3 +1,6 @@
+from prettytable import PrettyTable
+
+
 class Station:
     """
     Class for station,
@@ -26,13 +29,21 @@ class Station:
         """
         printing all trains without considering type
         """
-        return self.heavy_trains + self.human_trains
+        table = PrettyTable(["Имя поезда", "Тип"])
+        for x in self.heavy_trains:
+            table.add_row([x.title(), "Грузовой"])
+
+        for x in self.human_trains:
+            table.add_row([x.title(), "Пассажирский"])
+
+        return table
 
     def type_trains(self):
         """
         output of trains by type
         """
-        return "Грузовые: ", self.heavy_trains, "Пассажирские: ", self.human_trains
+        return "Грузовые: ", self.heavy_trains, "Пассажирские: ", \
+               self.human_trains
 
     def send_train(self):
         """
