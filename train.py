@@ -40,11 +40,11 @@ class Train:
         self.t_speed = 0
         return "Train speed equal 0"
 
-    def wagons(self):
+    def return_wagons(self):
         """
         returns the speed
         """
-        return self.wagons()
+        return self.wagons
 
     def connect_wagon(self):
         """
